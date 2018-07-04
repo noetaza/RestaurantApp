@@ -25,7 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     ArrayList<Category> category = new ArrayList<Category>();
     private ProgressDialog pDialog;
-    private String url = "http://10.10.0.241:9000/api/platos";
+    private String dom = "http://192.168.1.129";    //dominio del servidor
+    private String url = dom+":9000/api/platos";
     private AdapterCategory adapter;
 
     @Override
@@ -84,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject dish = menu.getJSONObject(i);
                     Category cat = new Category(dish.getString("Dishid"), dish.getString("Name"),
                             dish.getString("Description"), dish.getString("ID"),
-                            dish.getDouble("Price"), "http://10.10.0.241:9000/images/"+dish.getString("Image"));
+                            dish.getDouble("Price"), dom+":9000/images/"+dish.getString("Image"));
 
                     category.add(cat);
                 }
